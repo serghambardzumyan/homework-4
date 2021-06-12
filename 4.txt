@@ -1,0 +1,22 @@
+function subsets(arr,i = 0,j = i + 1,k = i + 2,newArr = [],subset = []){
+    if(arr.length <= 3){
+        return arr;
+    }
+    while(j <= arr.length - 2 && k <= arr.length - 1){
+        while(k < arr.length){
+            subset.push(arr[i]);
+            subset.push(arr[j]);
+            subset.push(arr[k]);
+            newArr.push(subset);
+            k++;
+            subset = [];
+        }
+        j++;
+        k = j + 1;
+    }
+    i++;
+    if(i > Math.round(arr.length / 2)){
+        return newArr;
+    }
+    return subsets(arr,i,j = i + 1,k = i + 2,newArr,subset = [])
+}

@@ -1,0 +1,13 @@
+function sort(arr,x,y){
+    let map = new Map();
+    for(let elem of arr){
+        map.set(elem,elem);
+    }
+    for(let i = x + 1; i < y; i++){
+        if(map.has(i)){
+            arr.push(i);
+            arr.splice(0,1);
+        }
+    }
+    return arr;
+}
